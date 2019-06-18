@@ -1,0 +1,256 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ink.ykb.demo</groupId>
+  <artifactId>springboot-beetl-beetlsql</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springboot-beetl-beetlsql</name>
+  <packaging>jar</packaging>
+  
+  <properties>
+    <!-- maven方式跳过maven test，跳过测试代码的编译, 等同$ mvn package -Dmaven.test.skip=true -->
+    <maven.test.skip>true</maven.test.skip>
+    <!-- surefire plugin方式跳过maven test，跳过单元测试的运行， 等同$ mvn package -DskipTests -->
+    <skipTests>true</skipTests>
+</properties>
+  
+  <!-- maven打包项目 -->
+  <build>
+	  	<plugins>
+			  <plugin>
+				  <groupId>org.springframework.boot</groupId>
+				  <artifactId>spring-boot-maven-plugin</artifactId>
+			  </plugin>
+	  	</plugins>
+  </build>
+  
+  
+  
+  
+  
+  
+    <parent>
+	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>2.0.2.RELEASE</version>
+  </parent>
+ 	
+ 	<dependencies>
+
+ 	
+		<!--  	使用Undertow-->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-undertow -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework.boot</groupId> -->
+<!-- 		    <artifactId>spring-boot-starter-undertow</artifactId> -->
+<!-- 		</dependency> -->
+		
+		
+		
+		<!--  	使用Jetty -->
+		 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jetty -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework.boot</groupId> -->
+<!-- 		    <artifactId>spring-boot-starter-jetty</artifactId> -->
+<!-- 		</dependency> -->
+		
+		
+ 	
+<!--  		默认为tomcat -->
+ 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+<!-- 		    <exclusions> -->
+<!-- 		    	<exclusion> -->
+<!-- 		    		<groupId>org.springframework.boot</groupId> -->
+<!-- 		    		<artifactId>spring-boot-starter-tomcat</artifactId> -->
+<!-- 		    	</exclusion> -->
+<!-- 		    </exclusions> -->
+		</dependency>
+ 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+ 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+ 		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		    <version>2.7.4</version>
+		</dependency>
+ 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>6.0.6</version>
+		</dependency>
+ 		
+ 		<!-- https://mvnrepository.com/artifact/com.ibeetl/beetl-framework-starter -->
+		<dependency>
+		    <groupId>com.ibeetl</groupId>
+		    <artifactId>beetl-framework-starter</artifactId>
+		    <version>1.1.48.RELEASE</version>
+		</dependency>
+
+ 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-test</artifactId>
+		    <scope>test</scope>
+		</dependency>
+ 		
+<!--  		Swagger -->
+ 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>2.7.0</version>
+		</dependency>
+ 		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
+	<dependency>
+	    <groupId>io.swagger</groupId>
+	    <artifactId>swagger-annotations</artifactId>
+	    <version>1.5.17</version>
+	</dependency>
+ 		
+ 		
+<!--  		Http请求工具类 -->
+ 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.5.4</version>
+	</dependency>
+<!--  		对httpclient的封装工具类 -->
+ 	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/fluent-hc -->
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>fluent-hc</artifactId>
+	    <version>4.5.4</version>
+	</dependency>
+<!--  	整合redis -->
+ 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-data-redis</artifactId>
+	</dependency>
+	
+ 	<!-- ES搜索 -->
+ 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+	</dependency>
+	
+	<!-- 整合cache -->
+	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-cache -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-cache</artifactId>
+	</dependency>
+	<!-- 使用Ehcache 2.X -->
+	<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
+	<dependency>
+	    <groupId>net.sf.ehcache</groupId>
+	    <artifactId>ehcache</artifactId>
+	    <version>2.10.4</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context-support</artifactId>
+	</dependency>
+<!-- 	 	整合session -->
+ 	<!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
+	<dependency>
+	    <groupId>org.springframework.session</groupId>
+	    <artifactId>spring-session-data-redis</artifactId>
+	</dependency>
+<!--  	整合zookeeper 分布式锁-->
+	<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
+	<dependency>
+	    <groupId>org.apache.curator</groupId>
+	    <artifactId>curator-recipes</artifactId>
+<!-- 	    <version>4.0.0</version> -->
+	    <version>2.12.0</version>
+	</dependency>
+<!-- 	整合zookeeper服务注册 -->
+<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-x-discovery -->
+	<dependency>
+	    <groupId>org.apache.curator</groupId>
+	    <artifactId>curator-x-discovery</artifactId>
+	    <version>2.12.0</version>
+	</dependency>
+<!-- 	整合监控 -->
+	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+	
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.16.20</version>
+    <scope>provided</scope>
+</dependency>
+
+ 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+ 	<!-- https://mvnrepository.com/artifact/io.github.biezhi/excel-plus -->
+<dependency>
+    <groupId>io.github.biezhi</groupId>
+    <artifactId>excel-plus</artifactId>
+    <version>0.1.2-RELEASE</version>
+</dependency>
+ 	<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.54</version>
+</dependency>
+ 	
+ 	
+ 	</dependencies>
+ 	
+ 	<repositories>
+ 		<repository>
+ 			<id>spring-snapshots</id>
+ 			<url>http://repo.spring.io/snapshot</url>
+ 			<snapshots>
+ 				<enabled>true</enabled>
+ 			</snapshots>
+ 		</repository>
+ 		<repository>
+ 			<id>spring-milestones</id>
+ 			<url>http://repo.spring.io/milestone</url>
+ 		</repository>
+ 	</repositories>
+ 	
+ 	<pluginRepositories>
+ 		<pluginRepository>
+ 			<id>spring-snapshots</id>
+ 			<url>http://repo.spring.io/snapshot</url>
+ 		</pluginRepository>
+  		<pluginRepository>
+ 			<id>spring-milestones</id>
+ 			<url>http://repo.spring.io/milestone</url>
+ 		</pluginRepository>	
+ 	</pluginRepositories>
+</project>

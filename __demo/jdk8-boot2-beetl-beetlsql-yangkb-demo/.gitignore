@@ -1,0 +1,7 @@
+/target/
+/.classpath
+/.project
+/.settings/
+/bin/
+/my.log
+/springboot-beetl-beetlsql.log

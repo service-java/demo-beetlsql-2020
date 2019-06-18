@@ -19,5 +19,4 @@ public interface CoreUserDao extends BaseMapper<CoreUser> {
      */
     List<CoreUser> getUserByRole(String roleCode);
 
-
 }

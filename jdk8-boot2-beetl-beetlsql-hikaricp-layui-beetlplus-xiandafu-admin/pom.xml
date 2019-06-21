@@ -23,7 +23,8 @@
     </parent>
     <!-- Add typical dependencies for a web application -->
     <dependencies>
-        <!-- devtools是可以用的 -> 只是我想用jrebel-->
+
+        <!-- devtools是可以用的, 用jrebel更好些 -->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
             <!--<artifactId>spring-boot-devtools</artifactId>-->

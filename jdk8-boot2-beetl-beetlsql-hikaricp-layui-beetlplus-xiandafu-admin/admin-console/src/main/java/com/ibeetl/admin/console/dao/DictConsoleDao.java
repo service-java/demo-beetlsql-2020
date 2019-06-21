@@ -13,7 +13,7 @@ import com.ibeetl.admin.core.entity.CoreDict;
  */
 @SqlResource("console.dict")
 public interface DictConsoleDao extends BaseMapper<CoreDict> {
-    public PageQuery<CoreDict> queryByCondition(PageQuery query);
+    PageQuery<CoreDict> queryByCondition(PageQuery query);
 
-    public void batchDelCoreDictByIds(List<Long> ids);
+    void batchDelCoreDictByIds(List<Long> ids);
 }

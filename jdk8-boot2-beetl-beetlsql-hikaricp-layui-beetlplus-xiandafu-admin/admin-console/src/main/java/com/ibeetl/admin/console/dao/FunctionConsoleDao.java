@@ -14,5 +14,5 @@ public interface FunctionConsoleDao extends BaseMapper<CoreFunction> {
      *
      * @param query
      */
-    public void queryByCondtion(PageQuery query);
+    void queryByCondtion(PageQuery query);
 }

@@ -75,16 +75,20 @@ batchDeleteRoleMenu
 ===
 
 ```sql
-delete from core_role_menu  
-where role_id in( #join(ids)#);
+delete from 
+    core_role_menu  
+where 
+    role_id in( #join(ids)#);
 ```
 	
 batchDeleteUserRole
 ===
 
 ```sql
-delete from core_user_role  
-where role_id in( #join(ids)#);			
+delete from 
+    core_user_role  
+where 
+    role_id in( #join(ids)#);			
 ```
 	
 
@@ -92,6 +96,9 @@ queryAllByDelflag
 =================
 
 ```sql
-select * from core_role r 
-where r.del_flag = #delFlag#
+select * 
+from 
+    core_role r 
+where 
+    r.del_flag = #delFlag#
 ```

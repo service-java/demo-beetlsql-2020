@@ -3,16 +3,17 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 	var laydate = layui.laydate;
 	var table = layui.table;
 	var auditTable = null;
+
 	var view ={
-		
+
 		init:function(){
 			this.initTable();
 			this.initSearchForm();
 			window.dataReload = function(){
 				Lib.doSearchForm($("#auditSearchForm"),auditTable)
 			}
-			
-			
+
+
 		},
 		initTable:function(){
 			auditTable = table.render({
@@ -54,7 +55,7 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 					field : 'message',
 					title : '消息',
 					width : 150
-				}, 
+				},
 				 {
 					field : 'success',
 					title : '访问状态',
@@ -78,12 +79,12 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 
 			});
 		},
-		
+
 		initSearchForm:function(){
 			Lib.initSearchForm( $("#auditSearchForm"),auditTable,form);
 		}
 	}
 
 	 exports('index',view);
-	
+
 });

@@ -4,7 +4,7 @@ queryByCondtion
 ```sql
 select 
     @pageTag(){
-    a.*
+        a.*
     @}
 from 
     core_audit a 
@@ -16,10 +16,10 @@ where
         and function_name like #'%'+functionName+'%'#
     @}
     @if(isNotEmpty(functionCode)){
-            and function_code like #'%'+functionCode+'%'#
+        and function_code like #'%'+functionCode+'%'#
     @}
     @if(isNotEmpty(userName)){
-            and user_name like #'%'+userName+'%'#
+        and user_name like #'%'+userName+'%'#
     @}
     @if(!isEmpty(createDateMin)){
          and  create_time>= #createDateMin#

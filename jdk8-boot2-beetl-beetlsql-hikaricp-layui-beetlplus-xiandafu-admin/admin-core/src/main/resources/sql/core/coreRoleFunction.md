@@ -5,20 +5,22 @@ getRoleFunction
 
 ```sql
 select * 
-from core_role_function 
-where role_id in 
-(
-  select role_id  
-  from core_user_role 
-  where user_id =#userId# 
-  and org_id=#orgId#
-) 
-and FUNCTION_ID = 
-(
-select id 
-from core_function 
-where code=#code#
-)
+from 
+    core_role_function 
+where 
+    role_id in 
+    (
+      select role_id  
+      from core_user_role 
+      where user_id =#userId# 
+      and org_id=#orgId#
+    ) 
+    and FUNCTION_ID = 
+    (
+        select id 
+        from core_function 
+        where code=#code#
+    )
 ```
 
 

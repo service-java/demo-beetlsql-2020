@@ -3,20 +3,22 @@ queryByCondtion
 
 ```sql
 select
-@pageTag(){
-    r.*
-@}
-from core_role r where 1=1
-@if(!isEmpty(code)){
-    and  r.code like #"%"+code+"%"#
-@}
-@if(!isEmpty(name)){
-    and  r.name like #"%"+name+"%"#
-@}
-
-@if(!isEmpty(type)){
-    and  r.type = #type#
-@}
+    @pageTag(){
+        r.*
+    @}
+from 
+    core_role r 
+where 1=1
+    @if(!isEmpty(code)){
+        and  r.code like #"%"+code+"%"#
+    @}
+    @if(!isEmpty(name)){
+        and  r.name like #"%"+name+"%"#
+    @}
+    
+    @if(!isEmpty(type)){
+        and  r.type = #type#
+    @}
 
 @pageIgnoreTag(){
    order by id desc

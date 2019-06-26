@@ -3,10 +3,12 @@ queryByCondtion
 
 ```sql
 select 
-@pageTag(){
-f.*
-@}
-from core_function f where 1=1 
+    @pageTag(){
+    f.*
+    @}
+from 
+    core_function f 
+where 1=1 
 @if(!isEmpty(functionIds)){
     and  f.id in ( #join(functionIds)#)
 @}
@@ -22,6 +24,7 @@ from core_function f where 1=1
 @if(!isEmpty(parentFunctionId)){
     and  f.parent_id = #parentFunctionId#
 @}
+
 @pageIgnoreTag(){
    order by id
 @}

@@ -5,16 +5,20 @@ queryOrgByUser
 
 ```sql
 select * 
-from core_org 
-where id in
- ( 
-     select org_id 
-     from core_user_role 
-     where user_id=#userId# 
-     group by org_id
- ) 
- and 1=1
- and del_flag = 0 order by id desc
+from 
+    core_org 
+where 
+    id in
+    ( 
+         select org_id 
+         from core_user_role 
+         where user_id=#userId# 
+         group by org_id
+    ) 
+    and 1=1
+    and del_flag = 0 
+
+order by id desc
 ```
 	
 queryAllOrgCode

@@ -53,7 +53,7 @@ RemoteSystemsTempFiles/
 *.ipr
 .idea/
 */target/*
-logs/*
+#logs/*
 */logs/*
 
 ### NetBeans ###
@@ -107,7 +107,7 @@ nb-configuration.xml
 
 
 ### Maven ###
-log/
+#log/
 target/
 pom.xml.tag
 pom.xml.releaseBackup

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ibeetl.admin.console.dao.DictConsoleDao;
-import com.ibeetl.admin.console.web.dto.DictExcelImportData;
+import com.ibeetl.admin.console.controller.dto.DictExcelImportDataDTO;
 import com.ibeetl.admin.core.entity.CoreDict;
 import com.ibeetl.admin.core.entity.CoreUser;
 import com.ibeetl.admin.core.service.BaseService;
@@ -59,12 +59,12 @@ public class DictConsoleService extends BaseService<CoreDict> {
      * @param list
      * @return
      */
-    public void batchInsert(List<DictExcelImportData> list) {
+    public void batchInsert(List<DictExcelImportDataDTO> list) {
         int dataStartRow = 2;
-        final Map<Integer, DictExcelImportData> map = new HashMap<>();
+        final Map<Integer, DictExcelImportDataDTO> map = new HashMap<>();
         list.forEach((item) -> map.put(item.getExcelId(), item));
         //逐个按照顺序导入
-        for (DictExcelImportData item : list) {
+        for (DictExcelImportDataDTO item : list) {
             CoreDict dict = new CoreDict();
             dict.setName(item.getName());
             dict.setRemark(item.getRemark());
@@ -74,7 +74,7 @@ public class DictConsoleService extends BaseService<CoreDict> {
 
             //设置父字典
             if (item.getParentExcelId() != 0) {
-                DictExcelImportData parentItem = map.get(item.getParentExcelId());
+                DictExcelImportDataDTO parentItem = map.get(item.getParentExcelId());
                 if (parentItem == null) {
                     //硬编码，TODO,用reader缺少校验，替换手写导入
                     int row = item.getExcelId() + dataStartRow;

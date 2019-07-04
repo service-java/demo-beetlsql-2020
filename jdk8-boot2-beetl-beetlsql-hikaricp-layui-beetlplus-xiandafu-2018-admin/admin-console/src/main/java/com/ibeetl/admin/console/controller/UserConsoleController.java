@@ -1,13 +1,11 @@
-package com.ibeetl.admin.console.web;
+package com.ibeetl.admin.console.controller;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,9 +25,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ibeetl.admin.console.service.OrgConsoleService;
 import com.ibeetl.admin.console.service.RoleConsoleService;
 import com.ibeetl.admin.console.service.UserConsoleService;
-import com.ibeetl.admin.console.web.dto.UserExcelExportData;
-import com.ibeetl.admin.console.web.query.UserQuery;
-import com.ibeetl.admin.console.web.query.UserRoleQuery;
+import com.ibeetl.admin.console.controller.dto.UserExcelExportDataDTO;
+import com.ibeetl.admin.console.controller.query.UserQuery;
+import com.ibeetl.admin.console.controller.query.UserRoleQuery;
 import com.ibeetl.admin.core.annotation.Function;
 import com.ibeetl.admin.core.annotation.Query;
 import com.ibeetl.admin.core.entity.CoreUser;
@@ -289,7 +287,7 @@ public class UserConsoleController {
         page.setPageSize(Integer.MAX_VALUE);
         page.setPageNumber(1);
         page.setTotalRow(Integer.MAX_VALUE);
-        List<UserExcelExportData> users = userConsoleService.queryExcel(page);
+        List<UserExcelExportDataDTO> users = userConsoleService.queryExcel(page);
         try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(excelTemplate)) {
             if (is == null) {
                 throw new PlatformException("模板资源不存在：" + excelTemplate);

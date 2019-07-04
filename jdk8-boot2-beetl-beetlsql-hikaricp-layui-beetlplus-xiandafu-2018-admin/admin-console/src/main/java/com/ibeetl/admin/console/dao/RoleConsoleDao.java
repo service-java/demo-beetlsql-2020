@@ -6,7 +6,6 @@ import org.beetl.sql.core.annotatoin.SqlResource;
 import org.beetl.sql.core.engine.PageQuery;
 import org.beetl.sql.core.mapper.BaseMapper;
 
-import com.ibeetl.admin.console.web.query.RoleUserQuery;
 import com.ibeetl.admin.core.entity.CoreRole;
 import com.ibeetl.admin.core.entity.CoreUser;
 

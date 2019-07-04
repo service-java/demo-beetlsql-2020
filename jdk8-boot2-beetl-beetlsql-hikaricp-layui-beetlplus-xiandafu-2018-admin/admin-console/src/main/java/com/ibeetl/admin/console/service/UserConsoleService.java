@@ -14,8 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ibeetl.admin.console.dao.UserConsoleDao;
 import com.ibeetl.admin.console.exception.DeletedException;
 import com.ibeetl.admin.console.exception.NoResourceException;
-import com.ibeetl.admin.console.web.dto.UserExcelExportData;
-import com.ibeetl.admin.console.web.query.UserRoleQuery;
+import com.ibeetl.admin.console.controller.dto.UserExcelExportDataDTO;
+import com.ibeetl.admin.console.controller.query.UserRoleQuery;
 import com.ibeetl.admin.core.conf.PasswordConfig.PasswordEncryptService;
 import com.ibeetl.admin.core.entity.CoreDict;
 import com.ibeetl.admin.core.entity.CoreUser;
@@ -183,13 +183,13 @@ public class UserConsoleService extends BaseService<CoreUser> {
         sqlManager.insert(userRole);
     }
 
-    public List<UserExcelExportData> queryExcel(PageQuery<CoreUser> query) {
+    public List<UserExcelExportDataDTO> queryExcel(PageQuery<CoreUser> query) {
         PageQuery<CoreUser> ret = userDao.queryByCondtion(query);
         List<CoreUser> list = ret.getList();
         OrgItem orgRoot = platformService.buildOrg();
-        List<UserExcelExportData> items = new ArrayList<>();
+        List<UserExcelExportDataDTO> items = new ArrayList<>();
         for (CoreUser user : list) {
-            UserExcelExportData userItem = new UserExcelExportData();
+            UserExcelExportDataDTO userItem = new UserExcelExportDataDTO();
             userItem.setCode(user.getCode());
             userItem.setId(user.getId());
             userItem.setName(user.getName());

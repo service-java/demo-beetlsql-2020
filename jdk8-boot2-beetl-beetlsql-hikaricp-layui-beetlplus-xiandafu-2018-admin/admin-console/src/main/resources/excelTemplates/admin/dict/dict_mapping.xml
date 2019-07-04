@@ -4,7 +4,7 @@
         <section startRow="0" endRow="2">
         </section>
         <loop startRow="3" endRow="3" items="list" var="dict"
-              varType="com.ibeetl.admin.console.web.dto.DictExcelImportData">
+              varType="com.ibeetl.admin.console.controller.dto.DictExcelImportDataDTO">
             <section startRow="3" endRow="3">
                 <mapping row="3" col="0">dict.excelId</mapping>
                 <mapping row="3" col="1">dict.name</mapping>

@@ -1,10 +1,9 @@
-package com.ibeetl.admin.console.web;
+package com.ibeetl.admin.console.controller;
 
 
 import java.util.List;
 import java.util.Map;
 
-import io.swagger.annotations.ApiOperation;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.beetl.sql.core.engine.PageQuery;
@@ -17,8 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ibeetl.admin.console.service.AuditConsoleService;
-import com.ibeetl.admin.console.web.query.AuditQuery;
-import com.ibeetl.admin.console.web.query.UserQuery;
+import com.ibeetl.admin.console.controller.query.AuditQuery;
 import com.ibeetl.admin.core.annotation.Function;
 import com.ibeetl.admin.core.annotation.Query;
 import com.ibeetl.admin.core.entity.CoreAudit;

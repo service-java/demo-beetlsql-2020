@@ -1,4 +1,4 @@
-package com.ibeetl.admin.console.web.dto;
+package com.ibeetl.admin.console.controller.dto;
 
 import com.ibeetl.admin.core.entity.CoreDict;
 
@@ -7,7 +7,7 @@ import com.ibeetl.admin.core.entity.CoreDict;
  *
  * @author xiandafu
  */
-public class DictExcelImportData extends CoreDict {
+public class DictExcelImportDataDTO extends CoreDict {
     private Integer excelId;
     private Integer parentExcelId;
 

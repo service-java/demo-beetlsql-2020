@@ -1,9 +1,6 @@
-package com.ibeetl.admin.console.web.query;
-
-import java.util.Date;
+package com.ibeetl.admin.console.controller.query;
 
 import com.ibeetl.admin.core.annotation.Query;
-import com.ibeetl.admin.core.util.Tool;
 import com.ibeetl.admin.core.util.enums.CoreDictType;
 import com.ibeetl.admin.core.web.query.PageParam;
 

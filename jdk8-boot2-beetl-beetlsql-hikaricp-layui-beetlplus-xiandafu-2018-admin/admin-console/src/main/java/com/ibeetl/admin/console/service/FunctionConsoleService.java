@@ -11,16 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ibeetl.admin.console.dao.FunctionConsoleDao;
 import com.ibeetl.admin.console.dao.RoleFunctionConsoleDao;
-import com.ibeetl.admin.console.web.dto.RoleDataAccessFunction;
+import com.ibeetl.admin.console.controller.dto.RoleDataAccessFunctionDTO;
 import com.ibeetl.admin.core.dao.CoreMenuDao;
 import com.ibeetl.admin.core.dao.CoreRoleMenuDao;
 import com.ibeetl.admin.core.entity.CoreFunction;
 import com.ibeetl.admin.core.entity.CoreMenu;
-import com.ibeetl.admin.core.entity.CoreOrg;
 import com.ibeetl.admin.core.entity.CoreRoleFunction;
 import com.ibeetl.admin.core.entity.CoreRoleMenu;
 import com.ibeetl.admin.core.rbac.tree.FunctionItem;
-import com.ibeetl.admin.core.rbac.tree.OrgItem;
 import com.ibeetl.admin.core.service.BaseService;
 import com.ibeetl.admin.core.service.CorePlatformService;
 import com.ibeetl.admin.core.util.PlatformException;
@@ -124,7 +122,7 @@ public class FunctionConsoleService extends BaseService<CoreFunction> {
      * @param roleId
      * @return
      */
-    public List<RoleDataAccessFunction> getQueryFunctionByRole(Long roleId) {
+    public List<RoleDataAccessFunctionDTO> getQueryFunctionByRole(Long roleId) {
         return this.roleFunctionConsoleDao.getQueryFunctionAndRoleData(roleId);
     }
 
@@ -134,8 +132,8 @@ public class FunctionConsoleService extends BaseService<CoreFunction> {
      * @param roleId
      * @param data，必须包含id,和 dataAcerssType，采用模板更新
      */
-    public void updateFunctionAccessByRole(List<RoleDataAccessFunction> data) {
-        for (RoleDataAccessFunction fun : data) {
+    public void updateFunctionAccessByRole(List<RoleDataAccessFunctionDTO> data) {
+        for (RoleDataAccessFunctionDTO fun : data) {
             Long roleId = fun.getRoleId();
             Long functionId = fun.getId();
             int accessType = fun.getDataAccessType();

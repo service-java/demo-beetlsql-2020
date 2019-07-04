@@ -1,4 +1,4 @@
-package com.ibeetl.admin.console.web;
+package com.ibeetl.admin.console.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,8 +33,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ibeetl.admin.console.service.DictConsoleService;
-import com.ibeetl.admin.console.web.dto.DictExcelImportData;
-import com.ibeetl.admin.console.web.query.CoreDictQuery;
+import com.ibeetl.admin.console.controller.dto.DictExcelImportDataDTO;
+import com.ibeetl.admin.console.controller.query.CoreDictQuery;
 import com.ibeetl.admin.core.annotation.Function;
 import com.ibeetl.admin.core.entity.CoreDict;
 import com.ibeetl.admin.core.entity.CoreUser;
@@ -187,7 +187,7 @@ public class DictConsoleController {
         InputStream inputXML = Thread.currentThread().getContextClassLoader().getResourceAsStream("excelTemplates/admin/dict/dict_mapping.xml");
         XLSReader mainReader = ReaderBuilder.buildFromXML(inputXML);
         InputStream inputXLS = ins;
-        List<DictExcelImportData> dicts = new ArrayList<DictExcelImportData>();
+        List<DictExcelImportDataDTO> dicts = new ArrayList<DictExcelImportDataDTO>();
         Map beans = new HashMap();
         beans.put("list", dicts);
         ReaderConfig.getInstance().setSkipErrors(true);

@@ -1,16 +1,11 @@
-package com.ibeetl.admin.console.web.dto;
-
-import javax.validation.constraints.NotBlank;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ibeetl.admin.core.annotation.Dict;
+package com.ibeetl.admin.console.controller.dto;
 
 /**
  * excel导出需要的模板数据
  *
  * @author xiandafu
  */
-public class UserExcelExportData {
+public class UserExcelExportDataDTO {
     protected Long id;
     private String code;
     private String name;

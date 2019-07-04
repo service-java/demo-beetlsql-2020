@@ -1,4 +1,4 @@
-package com.ibeetl.admin.console.web;
+package com.ibeetl.admin.console.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ibeetl.admin.console.service.FunctionConsoleService;
-import com.ibeetl.admin.console.web.query.FunctionQuery;
+import com.ibeetl.admin.console.controller.query.FunctionQuery;
 import com.ibeetl.admin.core.annotation.Function;
 import com.ibeetl.admin.core.annotation.Query;
 import com.ibeetl.admin.core.entity.CoreFunction;

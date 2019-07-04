@@ -1,28 +1,5 @@
 package ${package};
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.beetl.sql.core.engine.PageQuery;
-import org.jxls.common.Context;
-import org.jxls.reader.ReaderBuilder;
-import org.jxls.reader.ReaderConfig;
-import org.jxls.reader.XLSReadMessage;
-import org.jxls.reader.XLSReadStatus;
-import org.jxls.reader.XLSReader;
-import org.jxls.util.JxlsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -30,22 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.ibeetl.admin.console.web.dto.DictExcelImportData;
-import com.ibeetl.admin.console.web.query.UserQuery;
+import com.ibeetl.admin.console.controller.dto.DictExcelImportData;
+import com.ibeetl.admin.console.controller.query.UserQuery;
 import com.ibeetl.admin.core.annotation.Function;
-import com.ibeetl.admin.core.annotation.Query;
-import com.ibeetl.admin.core.entity.CoreDict;
-import com.ibeetl.admin.core.entity.CoreUser;
-import com.ibeetl.admin.core.file.FileItem;
-import com.ibeetl.admin.core.file.FileService;
-import com.ibeetl.admin.core.web.JsonResult;
 import com.ibeetl.admin.core.util.*;
-import ${basePackage}.entity.*;
-import ${basePackage}.service.*;
-import ${basePackage}.web.query.*;
+{basePackage}.entity.*;
+import ${basePackage}.service.*;{basePackage}.web.query.*;
 
 /**
  * ${entity.displayName} 接口
@@ -59,7 +27,7 @@ public class ${entity.name}Controller{
     @var service=entity.code+"Service";
 
     \@Autowired private ${entity.name}Service ${service};
-    
+
     \@Autowired
     FileService fileService;
     /* 页面 */
@@ -125,7 +93,7 @@ public class ${entity.name}Controller{
     }
 
 
-   
+
     \@GetMapping(MODEL + "/view.json")
     \@Function("${basicfunctionCode}.query")
     \@ResponseBody
@@ -145,9 +113,9 @@ public class ${entity.name}Controller{
         ${service}.batchDel${entity.name}(idList);
         return new JsonResult().success();
     }
-    
+
     @if(entity.includeExcel){
-    
+
     \@PostMapping(MODEL + "/excel/export.json")
     \@Function("${basicfunctionCode}.export")
     \@ResponseBody
@@ -180,9 +148,9 @@ public class ${entity.name}Controller{
         } catch (IOException e) {
             throw new PlatformException(e.getMessage());
         }
-        
+
     }
-    
+
     \@PostMapping(MODEL + "/excel/import.do")
     \@Function("${basicfunctionCode}.import")
     \@ResponseBody
@@ -195,8 +163,8 @@ public class ${entity.name}Controller{
         ins.close();
         return JsonResult.success();
     }
-    
-    
+
+
     @}
 
 }

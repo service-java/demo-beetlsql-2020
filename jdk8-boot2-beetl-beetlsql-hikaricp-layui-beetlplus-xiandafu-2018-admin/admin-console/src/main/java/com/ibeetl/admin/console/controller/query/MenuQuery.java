@@ -1,4 +1,4 @@
-package com.ibeetl.admin.console.web.query;
+package com.ibeetl.admin.console.controller.query;
 
 import com.ibeetl.admin.core.annotation.Query;
 import com.ibeetl.admin.core.web.query.PageParam;

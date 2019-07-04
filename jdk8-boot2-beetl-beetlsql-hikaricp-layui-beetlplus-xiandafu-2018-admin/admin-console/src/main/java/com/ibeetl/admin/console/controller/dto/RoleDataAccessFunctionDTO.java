@@ -1,8 +1,8 @@
-package com.ibeetl.admin.console.web.dto;
+package com.ibeetl.admin.console.controller.dto;
 
 import com.ibeetl.admin.core.entity.CoreFunction;
 
-public class RoleDataAccessFunction extends CoreFunction {
+public class RoleDataAccessFunctionDTO extends CoreFunction {
     private Integer dataAccessType;
     private Long roleId;
 

@@ -1,4 +1,4 @@
-package com.ibeetl.admin.console.web;
+package com.ibeetl.admin.console.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,9 +22,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ibeetl.admin.console.service.FunctionConsoleService;
 import com.ibeetl.admin.console.service.OrgConsoleService;
 import com.ibeetl.admin.console.service.RoleConsoleService;
-import com.ibeetl.admin.console.web.dto.RoleDataAccessFunction;
-import com.ibeetl.admin.console.web.query.RoleQuery;
-import com.ibeetl.admin.console.web.query.RoleUserQuery;
+import com.ibeetl.admin.console.controller.dto.RoleDataAccessFunctionDTO;
+import com.ibeetl.admin.console.controller.query.RoleQuery;
+import com.ibeetl.admin.console.controller.query.RoleUserQuery;
 import com.ibeetl.admin.core.annotation.Function;
 import com.ibeetl.admin.core.annotation.Query;
 import com.ibeetl.admin.core.entity.CoreRole;
@@ -274,8 +274,8 @@ public class RoleConsoleController {
     @GetMapping(MODEL + "/function/queryFunction.json")
     @Function("role.function.list")
     @ResponseBody
-    public JsonResult<List<RoleDataAccessFunction>> getQueryFunctionByRole(Long roleId) {
-        List<RoleDataAccessFunction> list = functionConsoleService.getQueryFunctionByRole(roleId);
+    public JsonResult<List<RoleDataAccessFunctionDTO>> getQueryFunctionByRole(Long roleId) {
+        List<RoleDataAccessFunctionDTO> list = functionConsoleService.getQueryFunctionByRole(roleId);
         return JsonResult.success(list);
     }
 
@@ -307,7 +307,7 @@ public class RoleConsoleController {
     @Function("role.function.updateDataAccess")
     @ResponseBody
     public JsonResult updateFunctionDataAccess(Long roleId, Long fnId, Integer accessType) {
-        RoleDataAccessFunction data = new RoleDataAccessFunction();
+        RoleDataAccessFunctionDTO data = new RoleDataAccessFunctionDTO();
         data.setRoleId(roleId);
         data.setId(fnId);
         data.setDataAccessType(accessType);
@@ -319,7 +319,7 @@ public class RoleConsoleController {
     @PostMapping(MODEL + "/function/dataAccess.do")
     @Function("role.function.updateDataAccess")
     public ModelAndView datapage(Long roleId) {
-        List<RoleDataAccessFunction> list = functionConsoleService.getQueryFunctionByRole(roleId);
+        List<RoleDataAccessFunctionDTO> list = functionConsoleService.getQueryFunctionByRole(roleId);
         ModelAndView view = new ModelAndView("/admin/role/dataConfigPart.html");
         view.addObject("list", list);
         return view;

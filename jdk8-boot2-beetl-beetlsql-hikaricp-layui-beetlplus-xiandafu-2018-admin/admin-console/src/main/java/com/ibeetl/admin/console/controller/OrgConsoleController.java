@@ -1,4 +1,4 @@
-package com.ibeetl.admin.console.web;
+package com.ibeetl.admin.console.controller;
 
 import java.util.Date;
 import java.util.List;
@@ -19,8 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ibeetl.admin.console.service.OrgConsoleService;
 import com.ibeetl.admin.console.service.UserConsoleService;
-import com.ibeetl.admin.console.web.query.OrgQuery;
-import com.ibeetl.admin.console.web.query.OrgUserQuery;
+import com.ibeetl.admin.console.controller.query.OrgQuery;
+import com.ibeetl.admin.console.controller.query.OrgUserQuery;
 import com.ibeetl.admin.core.annotation.Function;
 import com.ibeetl.admin.core.annotation.Query;
 import com.ibeetl.admin.core.entity.CoreOrg;

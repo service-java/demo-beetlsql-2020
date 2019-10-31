@@ -2,7 +2,7 @@ findAllList
 ===
 
 ```sql
-select * 
+select *
 from 
     core_dict 
 where 

@@ -68,7 +68,7 @@ com.ibeetl.admin.CosonleApplication 是系统启动类，在admin-console包下,
 还需要修改SpringBoot配置文件application.properties,修改你的数据库地址和访问用户
 
 ~~~properties
-spring.datasource.baseDataSource.url=jdbc:mysql://127.0.0.1:3306/starter?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false&useInformationSchema=true
+spring.datasource.baseDataSource.url=jdbc:mysql://127.0.0.1:3306/beetl_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false&useInformationSchema=true
 spring.datasource.baseDataSource.username=root
 spring.datasource.baseDataSource.password=123456
 spring.datasource.baseDataSource.driver-class-name=com.mysql.cj.jdbc.Driver
